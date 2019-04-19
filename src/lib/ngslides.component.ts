@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, HostListener, OnInit} from '@angular/core';
+import {SlideNumberService} from './slide-number.service';
+
 
 @Component({
   selector: 'lib-ngslides',
@@ -7,9 +9,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NgslidesComponent implements OnInit {
 
-  constructor() { }
+  slideNumber: number = 0;
+
+  constructor(private slideNumberService: SlideNumberService) {
+  }
+
 
   ngOnInit() {
+    this.slideNumber = this.slideNumberService.getNumber();
+  }
+
+  markCurrent() {
+
   }
 
 }
